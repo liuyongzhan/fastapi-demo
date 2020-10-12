@@ -10,7 +10,7 @@ cd /data
 python3 -m venv fastapi_peewee
 cd  fastapi_peewee
 source bin/activate
-(fastapi_peewee) git clone https://xxx.com/root/xxx.git
+(fastapi_peewee) git clone https://xxx.com/xxx/xxx.git
 (fastapi_peewee) cd fastapi_peewee
 (fastapi_peewee) pip install -r requirements.txt
 (fastapi_peewee) uvicorn app.main:app --reload --host 0.0.0.0 --port 8000 --log-config=logging_config.ini
