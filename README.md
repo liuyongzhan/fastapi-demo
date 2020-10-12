@@ -2,6 +2,17 @@
 #### version: v1.0.0
 
 
+##### database init
+
+```shell script
+mysql> create database fastapi_demo charset utf8;
+mysql> grant all on fastapi_demo.* to 'liuyz'@'%' identified by 'Zhian@2019';
+```
+
+##### database migrate
+
+<https://github.com/aachurin/peewee_migrations>
+
 ##### run app
 
 ```shell script
@@ -21,7 +32,7 @@ source bin/activate
 
 ```shell script
 (fastapi_peewee) celery -A app.celery_app worker -Q fastapi_default -l DEBUG
-(fastapi_peewee) celery  -A app.celery_app worker -Q fastapi_long -l DEBUG
+(fastapi_peewee) celery -A app.celery_app worker -Q fastapi_long -l DEBUG
 (fastapi_peewee) celery -A app.celery_app beat -l DEBUG
 ```
 
@@ -32,18 +43,6 @@ source bin/activate
 
 ```
 
-##### database init
-
-```shell script
-mysql> create database fastapi_demo charset utf8;
-mysql> grant all on fastapi_demo.* to 'liuyz'@'%' identified by 'Zhian@2019';
-```
-
-##### database migrate
-
-<https://github.com/aachurin/peewee_migrations>
-
-
 ##### run in docker
 ###### build image
 ```shell script
@@ -51,5 +50,5 @@ docker build -t fastapi_peewee_img -f dockerfile_web .
 ```
 ###### run image
 ```shell script
-docker run -d --name fastapi_pwweww_demo --network host fastapi_peewee_img
+docker run -d --name fastapi_peewee_demo --network host fastapi_peewee_img
 ```
