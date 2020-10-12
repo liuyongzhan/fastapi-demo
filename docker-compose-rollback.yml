@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: dockerfile_web
+    image: harbor.ioiofast.com/phoenix/phoenix_matrix:2.4.7
+    container_name: phoenix-matrix
+    expose:
+      - "80"
+    ports:
+      - "8078:80"
+    volumes:
+      - /var/log/docker_log/phoenix_matrix:/var/log/phoenix/
+    environment:
+      PHOENIX_ENV: ${PHOENIX_ENV}
+    entrypoint: /app/run_web.sh
+    restart: always
+
+
+networks:
+  default:
+    external:
+      name: phoenix-uat
